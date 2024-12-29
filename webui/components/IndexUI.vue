@@ -51,7 +51,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
-const prefix_url = '/img-scroll/'
+const prefix_url = 'img-scroll/'
 // 图片数据
 const images = ref([
   { src: prefix_url + "img1.png", alt: "Image 1", caption: "Vrch Studio" },
