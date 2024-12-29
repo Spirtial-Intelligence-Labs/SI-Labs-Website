@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev webui --host",
+    "docs:build": "vitepress build webui",
+    "docs:preview": "vitepress preview webui --host"
+  },
+  "devDependencies": {
+    "flexsearch": "^0.7.43",
+    "markdown-it": "^14.1.0",
+    "vitepress": "^1.5.0",
+    "vitepress-plugin-search": "^1.0.4-alpha.22"
+  },
+  "dependencies": {
+    "element-plus": "^2.9.1",
+    "oh-my-live2d": "^0.19.3",
+    "swiper": "^11.1.15"
+  }
+}
