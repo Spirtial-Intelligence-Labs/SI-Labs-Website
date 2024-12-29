@@ -12,10 +12,10 @@ var options = {
   ignore: [],
 };
   
-
+const base = "/SI-Labs-Website/";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-
+  base,  
   vite: { plugins: [SearchPlugin(options)] },
 
   title: "Spirtial Intelligence Labs",
