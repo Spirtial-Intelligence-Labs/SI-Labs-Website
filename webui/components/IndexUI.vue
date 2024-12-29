@@ -84,7 +84,7 @@ const goToSlide = (index) => {
 
 // 安装按钮点击逻辑
 const startCompose = () => {
-  window.open("/join-us", "_blank");
+  window.open("join-us", "_blank");
 };
 
 // 挂载时启动自动轮播，卸载时清除定时器
