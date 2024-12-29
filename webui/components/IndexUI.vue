@@ -54,12 +54,14 @@ import { ref, onMounted, onUnmounted } from "vue";
 const prefix_url = 'img-scroll/'
 // 图片数据
 const images = ref([
-  { src: prefix_url + "img1.png", alt: "Image 1", caption: "Vrch Studio" },
-  { src: prefix_url + "img2.png", alt: "Image 2", caption: "Hakonaiwa and Andidea" },
-  { src: prefix_url + "img3.png", alt: "Image 3", caption: "Credit" },
-  { src: prefix_url + "img4.png", alt: "Image 4", caption: "Credit" },
-  { src: prefix_url + "img5.png", alt: "Image 5", caption: "Credit" }
+  { src: prefix_url + "_1927索尔维会议_2.jpg", alt: "Image 1", caption: "Vrch Studio" },
+  { src: prefix_url + "_blueSpace.jpeg", alt: "Image 2", caption: "Hakonaiwa and Andidea" },
+  { src: prefix_url + "_viktor.jpg", alt: "Image 3", caption: "Credit" },
+  { src: prefix_url + "_sci.jpg", alt: "Image 4", caption: "Credit" },
+  { src: prefix_url + "_lightGreenStar.jpg", alt: "Image 5", caption: "Credit" }
 ]);
+
+
 
 // 当前轮播索引
 const currentIndex = ref(0);
