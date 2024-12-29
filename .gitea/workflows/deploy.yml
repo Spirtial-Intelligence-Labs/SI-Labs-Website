@@ -1,0 +1,65 @@
+# replace localxxx to true address
+
+name: 部署
+
+on:
+  push:
+    branches:
+      - main  # 当推送到 main  分支时触发
+  pull_request:
+    branches:
+      - main  # 当有 pull request 合并到 main 分支时触发
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04  # 使用最新的 Ubuntu 运行器
+
+    strategy:
+      matrix:
+        node-version: [20]  # 指定要测试的 Node.js 版本
+
+    steps:
+    # - name: Set up proxy
+    #   run: |
+    #     echo "HTTP_PROXY=http://127.0.0.1:7890" >> $GITHUB_ENV
+    #     echo "HTTPS_PROXY=http://127.0.0.1:7890" >> $GITHUB_ENV
+
+
+    - uses: localxxx/checkout@v4  # 检出代码库
+    - name: 当前路径信息
+      run: |
+            pwd 
+            ls -a
+
+    - name:  打包构建
+      run: |
+          pwd
+          ls -a
+          node -v
+          npm config get registry
+          npm config set registry https://registry.npmmirror.com/
+          echo "安装依赖项..."
+          npm i
+          npm run docs:build
+
+
+    - name: 同步生产服务器
+      uses: localxxx/ssh-deploy@main
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.HK_RSA }}
+        ARGS: "-rlgoDzvc -i"
+        SOURCE: "./*"
+        REMOTE_HOST: ${{ secrets.HK_HOST }}
+        REMOTE_USER: root
+        TARGET: /mdk/node_webs/aigc_webui/
+        EXCLUDE: "/node_modules/"
+        SCRIPT_BEFORE: |
+          echo "***** start .... ******"
+          whoami
+          ls -al
+        SCRIPT_AFTER: |
+          echo "***** after .... ******"
+          whoami
+          ls -al
+          echo $RSYNC_STDOUT
