@@ -12,7 +12,7 @@ var options = {
   ignore: [],
 };
   
-const base = "/Website/";
+const base = "/si-labs/";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base,  
